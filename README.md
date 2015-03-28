@@ -20,3 +20,7 @@ Post message to standard output
 ```go
 err := chrome.Post(msg, os.Stdout)
 ```
+
+## SEE
+
+1. [Native Messaging - Google Chrome](https://developer.chrome.com/extensions/nativeMessaging)
