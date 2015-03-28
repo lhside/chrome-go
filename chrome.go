@@ -1,18 +1,13 @@
 package chrome
 
 import (
-  "os"
   "encoding/binary"
   "io"
 )
 
 var byteOrder binary.ByteOrder = binary.LittleEndian
 
-func Post(msg []byte) error {
-  return post(msg, os.Stdout)
-}
-
-func post(msg []byte, writer io.Writer) error {
+func Post(msg []byte, writer io.Writer) error {
   // Post message length in native byte order
   header := make([]byte, 4)
   byteOrder.PutUint32(header, (uint32)(len(msg)))
@@ -27,11 +22,7 @@ func post(msg []byte, writer io.Writer) error {
   return nil
 }
 
-func Recieve() ([]byte, error) {
-  return recieve(os.Stdin)
-}
-
-func recieve(reader io.Reader) ([]byte, error) {
+func Recieve(reader io.Reader) ([]byte, error) {
   // Read message length in native byte order
   var length uint32
   if err := binary.Read(reader, byteOrder, &length); err != nil {
