@@ -1,6 +1,6 @@
 # Chrome native messaging host in go
 
-This is a package for communicate with Chrome extension using native messaging api.
+This is a package to communicate with Chrome extension using native messaging api in go.
 
 ## Install
 
