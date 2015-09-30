@@ -13,7 +13,7 @@ go install github.com/lhside/chrome-go
 Read message from standard input.
 
 ```go
-msg, err := chrome.Recieve(os.Stdin)
+msg, err := chrome.Receive(os.Stdin)
 ```
 
 Post message to standard output

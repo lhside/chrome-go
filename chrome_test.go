@@ -6,7 +6,7 @@ import (
   "encoding/binary"
 )
 
-func TestRecieve(t *testing.T) {
+func TestReceive(t *testing.T) {
   message := bytes.NewBufferString("{\"text\": \"hello\"}")
   body := message.Bytes()
 
@@ -17,13 +17,13 @@ func TestRecieve(t *testing.T) {
 
   reader := bytes.NewReader(b)
 
-  recieved, err := Recieve(reader)
+  received, err := Receive(reader)
   if err != nil {
-    t.Error("Failed to recieve message")
+    t.Error("Failed to receive message")
   }
 
-  if ! bytes.Equal(recieved, body) {
-    t.Error("Recieved message is different from original message")
+  if ! bytes.Equal(received, body) {
+    t.Error("Received message is different from original message")
   }
 }
 

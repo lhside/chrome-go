@@ -22,7 +22,7 @@ func Post(msg []byte, writer io.Writer) error {
   return nil
 }
 
-func Recieve(reader io.Reader) ([]byte, error) {
+func Receive(reader io.Reader) ([]byte, error) {
   // Read message length in native byte order
   var length uint32
   if err := binary.Read(reader, byteOrder, &length); err != nil {
@@ -35,9 +35,9 @@ func Recieve(reader io.Reader) ([]byte, error) {
   }
 
   // Read message body
-  recieved := make([]byte, length)
-  if n, err := reader.Read(recieved); err != nil || n != len(recieved) {
+  received := make([]byte, length)
+  if n, err := reader.Read(received); err != nil || n != len(received) {
     return nil, err
   }
-  return recieved, nil
+  return received, nil
 }
